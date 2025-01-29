@@ -2,6 +2,14 @@ from datetime import datetime, timedelta
 from tkinter import Tk, Label, Button, filedialog, messagebox, StringVar, IntVar, OptionMenu, Frame, Entry
 import pandas as pd
 
+from flask import Flask
+
+app = Flask(__name__)  # Flaskアプリケーションのインスタンスを作成
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
 # 日時のフォーマットを自動的に判別して解析する関数
 def parse_datetime(datetime_str):
     possible_formats = [
